@@ -13,6 +13,11 @@ public class Lista {
         } catch(InterruptedException e) {
             e.printStackTrace();
         }
+
+        if (this.indice == this.tamanho()) { //novo if
+            System.out.println("lista tá cheia, notificando");
+            this.notify();
+        }
     }
 
     public int tamanho() {
@@ -21,5 +26,9 @@ public class Lista {
 
     public String pegaElemento(int posicao) {
         return this.elementos[posicao];
+    }
+
+    public boolean estaCheia() {
+        return this.indice == this.tamanho();
     }
 }
